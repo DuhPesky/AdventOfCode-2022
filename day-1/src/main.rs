@@ -14,6 +14,7 @@ fn part_one(cals_per_elf: &Vec<i32>) -> &i32 {
     cals_per_elf.iter().max().unwrap()
 }
 
+// 4.1036 microseconds
 fn part_two(mut cals_per_elf: Vec<i32>) -> i32 {
     cals_per_elf.sort();
     cals_per_elf
@@ -22,6 +23,7 @@ fn part_two(mut cals_per_elf: Vec<i32>) -> i32 {
         .sum::<i32>()
 }
 
+// 284.61 nanoseconds
 fn part_two_optimal(cals_per_elf: &Vec<i32>) -> i32 {
     let mut max_one = 0;
     let mut max_two = 0;
