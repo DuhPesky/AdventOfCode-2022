@@ -6,6 +6,7 @@ fn main() {
     let cals_per_elf = convert_txt_to_vec(file_path);
 
     println!("Max: {}", part_one(&cals_per_elf));
+    println!("Max Three Sum: {} - O", part_two_optimal(&cals_per_elf));
     println!("Max Three Sum: {}", part_two(cals_per_elf));
 }
 
@@ -19,6 +20,25 @@ fn part_two(mut cals_per_elf: Vec<i32>) -> i32 {
         .split_off(cals_per_elf.len() - 3)
         .iter()
         .sum::<i32>()
+}
+
+fn part_two_optimal(cals_per_elf: &Vec<i32>) -> i32 {
+    let mut max_one = 0;
+    let mut max_two = 0;
+    let mut max_three = 0;
+
+    for num in cals_per_elf.iter() {
+        if *num > max_one {
+            max_two = max_one;
+            max_one = *num;
+        } else if *num > max_two {
+            max_three = max_two;
+            max_two = *num;
+        } else if *num > max_three {
+            max_three = *num;
+        }
+    }
+    max_one + max_two + max_three
 }
 
 fn convert_txt_to_vec(txt_file_path: String) -> Vec<i32> {
