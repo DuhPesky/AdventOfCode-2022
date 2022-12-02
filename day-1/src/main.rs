@@ -31,6 +31,7 @@ fn part_two_optimal(cals_per_elf: &Vec<i32>) -> i32 {
 
     for num in cals_per_elf.iter() {
         if *num > max_one {
+            max_three = max_two;
             max_two = max_one;
             max_one = *num;
         } else if *num > max_two {
