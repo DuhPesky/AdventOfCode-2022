@@ -5,9 +5,8 @@ use std::io::BufRead;
 fn main() {
     let file_path = String::from("../input.txt");
     let data = convert_txt_to_vec(file_path);
-
-    let test: i32 = data.iter().map(|s| get_round_score_pt2(s.to_string()) as i32).sum();
-    println!("{:?}", test);
+    let total_score: i32 = data.iter().map(|s| get_round_score_pt2(s.to_string()) as i32).sum();
+    println!("{:?}", total_score);
 }
 
 fn get_round_score(round: String) -> u8 {
