@@ -5,10 +5,14 @@ use std::io::BufRead;
 fn main() {
     let file_path = String::from("../input.txt");
     let data = convert_txt_to_vec(file_path);
-    let total_score: i32 = data.iter().map(|s| get_round_score_pt2(s.to_string()) as i32).sum();
+    let total_score: i32 = data
+        .iter()
+        .map(|s| get_round_score_pt2(s.to_string()) as i32)
+        .sum();
     println!("{:?}", total_score);
 }
 
+// Part One
 fn get_round_score(round: String) -> u8 {
     let player_1 = round.as_bytes()[0];
     let player_2 = round.as_bytes()[2] - 23;
@@ -20,6 +24,7 @@ fn get_round_score(round: String) -> u8 {
     }
 }
 
+// Part Two
 fn get_round_score_pt2(round: String) -> u8 {
     let player_1 = round.as_bytes()[0];
     let player_2 = round.as_bytes()[2] - 23;
