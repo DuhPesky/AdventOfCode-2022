@@ -5,16 +5,9 @@ use std::io::BufRead;
 fn main() {
     let file_path = String::from("../input.txt");
     let data = convert_txt_to_vec(file_path);
-    let strategy_score = get_strategy_score(data);
-    println!("{:?}", strategy_score);
-}
 
-fn get_strategy_score(strategy: Vec<String>) -> i32 {
-    let mut score = 0;
-    for strat in strategy {
-        score += get_round_score_pt2(strat) as i32;
-    }
-    score
+    let test: i32 = data.iter().map(|s| get_round_score_pt2(s.to_string()) as i32).sum();
+    println!("{:?}", test);
 }
 
 fn get_round_score(round: String) -> u8 {
