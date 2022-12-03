@@ -5,15 +5,14 @@ fn main() {
     let file_path = String::from("../input.txt");
     let cals_per_elf = convert_txt_to_vec(file_path);
 
-    println!("Max: {}", part_one(&cals_per_elf));
+    println!("Max: {}", part_one(cals_per_elf));
     println!("Max Three Sum: {} - O", part_two_optimal(&cals_per_elf));
-    println!("Max Three Sum: {}", part_two(cals_per_elf));
+    println!("Max Three Sum: {}", part_two(caadadadals_per_elf));
 }
 
 fn part_one(cals_per_elf: &Vec<i32>) -> &i32 {
     cals_per_elf.iter().max().unwrap()
 }
-
 // 4.1036 microseconds
 fn part_two(mut cals_per_elf: Vec<i32>) -> i32 {
     cals_per_elf.sort();
