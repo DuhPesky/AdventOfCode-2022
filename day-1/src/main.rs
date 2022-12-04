@@ -10,9 +10,10 @@ fn main() {
     println!("Max Three Sum: {}", part_two(cals_per_elf));
 }
 
-fn part_one(cals_per_elf: &Vec<i32>) -> &i32 {
+fn part_one(cals_per_elf: &[i32]) -> &i32 {
     cals_per_elf.iter().max().unwrap()
 }
+
 // 4.1036 microseconds
 fn part_two(mut cals_per_elf: Vec<i32>) -> i32 {
     cals_per_elf.sort();
@@ -23,7 +24,7 @@ fn part_two(mut cals_per_elf: Vec<i32>) -> i32 {
 }
 
 // 284.61 nanoseconds
-fn part_two_optimal(cals_per_elf: &Vec<i32>) -> i32 {
+fn part_two_optimal(cals_per_elf: &[i32]) -> i32 {
     let mut max_one = 0;
     let mut max_two = 0;
     let mut max_three = 0;
@@ -53,7 +54,7 @@ fn convert_txt_to_vec(txt_file_path: String) -> Vec<i32> {
     for line in reader.lines() {
         let line = line.unwrap();
 
-        if line == "" {
+        if line.is_empty() {
             sums_per_whitespace_block.push(sum);
             sum = 0;
         } else {
